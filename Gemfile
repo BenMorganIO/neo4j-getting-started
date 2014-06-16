@@ -14,6 +14,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'thin'
 gem 'neo4j', github: 'andreasronge/neo4j'
+gem 'devise'
+gem 'devise-neo4j', github: 'cheerfulstoic/devise-neo4j'
 
 group :development do
   gem 'spring'
