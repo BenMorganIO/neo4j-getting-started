@@ -1,0 +1,18 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1 class="text-center">Listing posts</h1>
+  </div>
+
+  <table class="table">
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+        <td><%= link_to 'Show', post, class: 'btn btn-primary' %></td>
+        <td><%= link_to 'Edit', edit_post_path(post), class: 'btn btn-info' %></td>
+        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </table>
+</div>
+
+<%= link_to 'New Post', new_post_path, class: 'btn btn-default' %>

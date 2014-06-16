@@ -1,0 +1,48 @@
+<% if notice %>
+  <div id="notice" class="well bg-info">
+    <%= notice %>
+  </div>
+<% end %>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>
+      <%= @post.title %>
+      <br>
+      <small>Score: <%= @post.score %></small>
+    </h1>
+  </div>
+
+  <div class="panel-body lead">
+    <%= @post.text %>
+  </div>
+
+  <div class="panel-footer">
+    <h3>Comments</h3>
+
+    <table class="table">
+      <% @post.comments.each do |comment| %>
+        <tr>
+          <td>
+            <%= comment.title %>
+          </td>
+
+          <td class="text-right">
+            <%= link_to 'Destroy', [@post,comment], method: :delete, class: 'btn btn-danger' %>
+          </td>
+        </tr>
+      <% end %>
+    </table>
+
+    <div class="row">
+      <p class="col-md-6 text-left">
+        <%= link_to 'Edit Post', edit_post_path(@post), class: 'btn btn-info' %>
+        <%= link_to 'Back', posts_path, class: 'btn btn-default' %>
+      </p>
+
+      <p class="col-md-6 text-right">
+        <%= link_to 'New Comment', new_post_comment_path(@post), class: 'btn btn-primary' %>
+      </p>
+    </div>
+  </div>
+</div>
